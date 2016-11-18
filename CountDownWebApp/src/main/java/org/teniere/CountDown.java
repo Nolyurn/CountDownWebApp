@@ -47,8 +47,7 @@ public class CountDown extends HttpServlet {
 				while( keys.hasNext() ) {
 				    String key = (String)keys.next();
 		
-				    int id = Integer.parseInt(key);
-				    
+				    int id = Integer.parseInt(key);		    
 				    JSONObject obj = jsonCL.getJSONObject(key);
 				    String title = obj.getString("title");
 				    String date = obj.getString("date");
