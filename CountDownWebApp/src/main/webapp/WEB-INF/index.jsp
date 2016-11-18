@@ -9,7 +9,6 @@
 	<meta charset="utf-8" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>CountDown</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
@@ -18,7 +17,7 @@
 	<script src="https://use.fontawesome.com/f7afa7f027.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
+	<script src="ui.js"></script>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
 	<header>
 		<div class="container">
 			<h1><%
-					out.println("Countdown app(EN date format)");
+					out.println("Countdown app (EN)");
 			%></h1>
 		</div>
 	</header>
@@ -68,96 +67,6 @@
 </html>
 <script>
 
-function addCountdown(){
-	$("#cuCountdown").html('\
-	<div class="container"> \
-		<div class="row"> \
-			<form action="countdownAdd" method="POST">\
-				<div class="col-md-3">\
-					<div class="form-group">\
-						<label for="title">Title</label> \
-						<input class="form-control" type="text" name="title" placeholder="Title"> \
-					</div> \
-				</div> \
-				<div class="col-md-3">\
-					<div class="form-group">\
-						<label for="date">Date</label> \
-						<div class="input-group date" id="datetimepicker"> \
-							<input type="datetime" class="form-control" name="date"/> \
-							<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> \
-							</span> \
-						</div> \
-					</div> \
-				</div> \
-				<div class="col-md-2"> \
-					<div class="form-group"> \
-						<label for="add"></label> \
-						<input name="add" class="form-control" type="submit" value="Add"> \
-					</div> \
-				</div> \
-			</form> \
-		</div> \
-	</div> \
-	<button onClick="cancel()"> \
-	<i class="fa fa-ban" aria-hidden="true"></i> \
-	</button>'); 
-	$(function () {
-		var dateNow = new Date();
-        $('#datetimepicker').datetimepicker({
-            defaultDate:dateNow
-        });
-    });
-}
-
-function updateCountdown(id,title,date){
-	$("#cuCountdown").html('\
-	<div class="container"> \
-		<div class="row"> \
-			<form action="countdownUpdate" method="POST">\
-				<div class="col-md-3">\
-					<div class="form-group">\
-						<label for="title">Title</label> \
-						<input class="form-control" type="text" name="title" value="'+title+'"> \
-					</div> \
-				</div> \
-				<div class="col-md-3">\
-					<div class="form-group">\
-						<label for="date">Date</label> \
-						<div class="input-group date" id="datetimepicker"> \
-							<input type="datetime" class="form-control" name="date"/> \
-							<span class="input-group-addon"> \
-							<span class="glyphicon glyphicon-calendar"></span> \
-							</span> \
-						</div> \
-					</div> \
-				</div> \
-				<div class="col-md-2"> \
-					<div class="form-group"> \
-						<label for="add"></label> \
-						<button name="update" class="form-control" type="submit" value="'+id+'">update</button> \
-					</div> \
-				</div> \
-			</form> \
-		</div>\
-	</div>\
-	<button onClick="cancel()">\
-	<i class="fa fa-ban" aria-hidden="true"></i>\
-	</button>');
-	$(function () {
-        $('#datetimepicker').datetimepicker({
-            defaultDate:Date.parse(date)
-        });
-    })
-}
-
-function cancel(){
-	$("#cuCountdown").html('\
-	<div id="addCountdown"> \
-		<button id="addCountdownButton" onClick="addCountdown()">Add Countdown</button> \
-	</div> \
-	');
-}
-
 var ws = new WebSocket("ws://localhost:8080/CountDownWebApp/ws");
 ws.onopen = function(){
 	ws.send('<%out.print(Util.getCookieValue(request,"countdownList").toString());%>');
@@ -167,7 +76,7 @@ ws.onmessage = function(message){
    
     var countdowns = JSON.parse(message.data);
     for(var i=0;i<Object.keys(countdowns).length;i++){
-    	$("#myTable tr:eq("+(i+1)+") td:eq("+3+")").html(countdowns[i]);
+    	$("#myTable tr:eq("+(i+1)+") td:eq("+2+")").html(countdowns[i]);
     }
 };
 

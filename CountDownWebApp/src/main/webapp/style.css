@@ -45,8 +45,7 @@ input,.input-group-addon{
   font-family: 'Roboto', sans-serif;
 }
 .bootstrap-datetimepicker-widget{
-  background: -webkit-linear-gradient(left, #b30086, #ff6666);
-  background: linear-gradient(to right, #b30086, #ff6666);
+  background:  #b30086;
   box-shadow: 0px 0px 2px #ffffff;
 }
 
