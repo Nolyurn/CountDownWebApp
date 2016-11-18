@@ -1,0 +1,42 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.sql.dataSource</param-name>
+		<param-value>jdbc/data</param-value>
+	</context-param>
+	<filter>
+	    <filter-name>hiddenHttpMethodFilter</filter-name>
+	    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>hiddenHttpMethodFilter</filter-name>
+	    <servlet-name>servletName</servlet-name>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>CountDown</servlet-name>
+		<servlet-class>org.teniere.CountDown</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountDown</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CountDown</servlet-name>
+		<url-pattern>/countdownDelete</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CountDown</servlet-name>
+		<url-pattern>/countdownUpdate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CountDown</servlet-name>
+		<url-pattern>/countdownAdd</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+    	<welcome-file>index</welcome-file>
+    </welcome-file-list>
+</web-app>
+
