@@ -8,6 +8,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 
 public class Util {
+	//Permet d'obtenir un cookie contenu dans request
 	public static String getCookieValue( HttpServletRequest request, String nom ) {
         javax.servlet.http.Cookie[] cookies = request.getCookies();
         if ( cookies != null ) {
@@ -19,7 +20,7 @@ public class Util {
         }
         return null;
     }
-	
+	//Modifie la valeur d'un cookie contenu dans request 
 	public static void setCookieValue( HttpServletRequest request, String nom, String value) {
         javax.servlet.http.Cookie[] cookies = request.getCookies();
         if ( cookies != null ) {
@@ -31,9 +32,8 @@ public class Util {
         }
     }
 	
-	@SuppressWarnings("deprecation")
 	public static String diff(String date) throws ParseException{
-		String pattern = "MM/dd/yyyy HH:mm a";
+		//Les dates sont au format anglais
 		DateFormat d = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT, new Locale("EN","en"));
 		Date d1 = new Date();
 		
@@ -46,10 +46,10 @@ public class Util {
 		
 		String res = "";
 		if(diffDays>0){
-			res += diffDays+" jour(s) ";
+			res += diffDays+" day(s) ";
 		}
 		if(diffHours>0){
-			res += diffHours+" heure(s) ";
+			res += diffHours+" hour(s) ";
 		}
 		if(diffMinutes>0){
 			res += diffMinutes+" minute(s) ";
@@ -58,7 +58,7 @@ public class Util {
 			res += diffSeconds+" seconde(s) ";
 		}
 
-		return (res.equals(""))?"Finis : "+date:res;
+		return (res.equals(""))?"Finished : "+date:res;
 
 	}
 }

@@ -17,6 +17,8 @@ import util.Util;
 import modele.Countdown;
 
 public class CountDown extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;	
 
 	@Override
 	public void doGet( HttpServletRequest request, HttpServletResponse response )
@@ -25,7 +27,7 @@ public class CountDown extends HttpServlet {
 		
 		ArrayList<Countdown> alC = new ArrayList<Countdown>();
 		
-		
+		//Si le cookie n'existe pas on l'initialise par un JSON vide
 		if(Util.getCookieValue(request, "countdownList")==null){
 			JSONObject jsonCL = new JSONObject();
 			Cookie cdList = new Cookie("countdownList",jsonCL.toString());
@@ -47,7 +49,7 @@ public class CountDown extends HttpServlet {
 				while( keys.hasNext() ) {
 				    String key = (String)keys.next();
 		
-				    int id = Integer.parseInt(key);		    
+				    int id = Integer.parseInt(key);
 				    JSONObject obj = jsonCL.getJSONObject(key);
 				    String title = obj.getString("title");
 				    String date = obj.getString("date");

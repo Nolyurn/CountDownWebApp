@@ -26,41 +26,24 @@ public class Ws {
     
     private Set<Session> userSessions = Collections.synchronizedSet(new HashSet<Session>());
  
-    /**
-     * Callback hook for Connection open events. This method will be invoked when a 
-     * client requests for a WebSocket connection.
-     * @param userSession the userSession which is opened.
-     */
     @OnOpen
     public void onOpen(Session userSession) {
         userSessions.add(userSession);
     }
      
-    /**
-     * Callback hook for Connection close events. This method will be invoked when a
-     * client closes a WebSocket connection.
-     * @param userSession the userSession which is opened.
-     */
     @OnClose
     public void onClose(Session userSession) {
         userSessions.remove(userSession);
     }
-     
-    /**
-     * Callback hook for Message Events. This method will be invoked when a client
-     * send a message.
-     * @param message The text message
-     * @param userSession The session of the client
-     * @throws JSONException 
-     * @throws ParseException 
-     * @throws InterruptedException 
-     */
+
     @OnMessage
     public void onMessage(String message, Session userSession) throws JSONException, ParseException, InterruptedException {
-    	
+    	//Message devrait contenir le cookie countdownList
     	JSONObject countdownList = new JSONObject(message);
+    	//jsCountdowns contiendra le temps mis à jour
     	JSONObject jsCountdowns = new JSONObject();
     	
+    	//Envoie de message toutes les secondes avec la liste de compte à rebours mis à jour
     	while(true){
     		Thread.sleep(1000);
 	    	Iterator<?> keys = countdownList.keys();
