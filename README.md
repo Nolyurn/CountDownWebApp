@@ -1,23 +1,25 @@
 # CountDownWebApp
 Application de compteur pour le cours de CAW
 
-Les cookies sont stockés sous le format d'une chaîne de caractère JSON.
-
-Côté Java
+# Côté Java
 
 modele.Countdown
--> L'objet décrivant le compte à rebours
+  -> L'objet décrivant le compte à rebours
 
 org.teniere.CountDown
--> Servlet
+  -> Servlet
 
 org.communication.Ws
--> Communication en WebSocket
+  -> Communication en WebSocket
 
 util.Util
--> Contient des méthodes utilitaires (getCookie, setCookie,diff //différence entre 2 dates)
+  -> Contient des méthodes utilitaires (getCookie, setCookie,diff //différence entre 2 dates)
 
-Côté Web
+# Côté Web
 
 ui.js
--> Contient les fonctions javascript permetant de modifier l'interface pour ajouter/modifier un compteur.
+  -> Contient les fonctions javascript permetant de modifier l'interface pour ajouter/modifier un compteur.
+
+# Note
+
+Les cookies sont stockés sous le format d'une chaîne de caractère JSON.
