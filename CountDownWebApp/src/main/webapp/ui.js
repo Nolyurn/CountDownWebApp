@@ -1,4 +1,4 @@
-
+$('#myTable').DataTable()
 function addCountdown(){
 	$("#cuCountdown").html('\
 	<div class="container"> \

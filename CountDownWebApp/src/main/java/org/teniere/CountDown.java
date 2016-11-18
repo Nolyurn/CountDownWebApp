@@ -34,8 +34,8 @@ public class CountDown extends HttpServlet {
 			cdList.setPath("/");
 			response.addCookie(cdList);	
 		}else{
-			JSONObject jsonCL;
 			try {
+				JSONObject jsonCL;
 				jsonCL = new JSONObject(Util.getCookieValue(request, "countdownList"));
 				//On parcours le JSON on ajoute les compteurs à une ArrayList
 				for(int i=0;i<jsonCL.length();i++){

@@ -47,12 +47,18 @@ public class Ws {
     	while(true){
     		Thread.sleep(1000);
 	    	Iterator<?> keys = countdownList.keys();
+	    	int cpt=0;
 			while( keys.hasNext() ) {
 			    String key = (String)keys.next();
 			    JSONObject obj = countdownList.getJSONObject(key);
 	
 			    String date = obj.getString("date");
-			    jsCountdowns.put(key, Util.diff(date));
+			    JSONObject idCountdown = new JSONObject();
+			    idCountdown.put("id", cpt);
+			    idCountdown.put("date", Util.diff(date));
+				
+			    jsCountdowns.put(key, idCountdown);
+			    cpt++;
 			}
 	    	userSession.getAsyncRemote().sendText(jsCountdowns.toString());
     	}
