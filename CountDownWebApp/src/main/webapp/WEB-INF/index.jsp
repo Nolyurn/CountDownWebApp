@@ -10,83 +10,8 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>CountDown</title>
-	<style>
-h1{
-  font-size: 30px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 15px;
-}
-table{
-	
-  width:100%;
-  table-layout: fixed;
-  color: white !important;
-}
-
-th{
-  padding: 20px 15px;
-  text-align: left;
-  font-weight: 500;
-  font-size: 12px;
-  
-  text-transform: uppercase;
-}
-td{
-  padding: 15px;
-  text-align: left;
-  vertical-align:middle;
-  font-weight: 300;
-  font-size: 12px;
-  border-bottom: solid 1px rgba(255,255,255,0.1);
-}
-button{
-	background: rgba(0,0,0,0.0)!important;
-  border-radius: 5px;
-  border:1px solid #FFF!important;
-  color:#fff!important;
-  font-family: 'Roboto', sans-serif;
-  
-}
-input,.input-group-addon{
-	background: rgba(0,0,0,0.0)!important;
-  border-radius: 5px;
-  border:1px solid #FFF;
-  color:#fff !important;
-  font-family: 'Roboto', sans-serif;
-}
-.bootstrap-datetimepicker-widget{
-  background: -webkit-linear-gradient(left, #b30086, #ff6666);
-  background: linear-gradient(to right, #b30086, #ff6666);
-  box-shadow: 0px 0px 2px #ffffff;
-}
-
-.bootstrap-datetimepicker-widget td:hover{
-    cursor:pointer;
-    font-weight:bold !important;
-}
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body{
-  background: -webkit-linear-gradient(left, #9900cc, #e68a00);
-  background: linear-gradient(to right, #9900cc, #e68a00);
-  font-family: 'Roboto', sans-serif;
-}
-label{
-	color:#fff;
-	font-family: 'Roboto', sans-serif;
-}
-.glyphicon{
-	color:white !important;
-}
-td form{
-	display:inline-block !important;
-}
-
-	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -101,7 +26,7 @@ td form{
 	<header>
 		<div class="container">
 			<h1><%
-					out.println("Countdown app(EN)");
+					out.println("Countdown app(EN date format)");
 			%></h1>
 		</div>
 	</header>
